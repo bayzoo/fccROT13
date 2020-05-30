@@ -10,22 +10,20 @@
 <script>
 "use strict";
 function rot13(str) {
-  let arrOne = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"];
-  let arrTwo = ["N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+  let arr = [
+    ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"],
+    ["N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+  ];
 
-  function decide(letter, oneArr, twoArr) {
-    if (oneArr.includes(letter)) {
-      return twoArr[oneArr.indexOf(letter)];
-    } else {
-      return oneArr[twoArr.indexOf(letter)];
-    }
-  }
+  function decide(x, arr) {
+    return arr[0].includes(x) ? arr[1][arr[0].indexOf(x)] : arr[0][arr[1].indexOf(x)];
+  };
   
   return str
     .split('')
-    .map(value => /[A-Z]/.test(value) ? decide(value, arrOne, arrTwo) : value)
+    .map(y => /[A-Z]/.test(y) ? decide(y, arr) : y)
     .join('');
-}
+};
 
 console.log(rot13("SERR YBIR?"));
 
