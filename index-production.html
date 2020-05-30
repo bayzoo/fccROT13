@@ -12,10 +12,19 @@
 function rot13(str) {
   let oneArr = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"];
   let twoArr = ["N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+
+  function decide(letter, oneArr, twoArr) {
+    if (oneArr.includes(letter)) {
+      return twoArr[oneArr.indexOf(letter)];
+    } else {
+      return oneArr[twoArr.indexOf(letter)];
+    }
+  }
   
   return str
     .split('')
-    .map(value => /[A-Z]/.test(value) ? value : "*");
+    .map(value => /[A-Z]/.test(value) ? "*" : value)
+    .join('');
 }
 
 console.log(rot13("SERR PBQR PNZC"));
