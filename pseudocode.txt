@@ -1,0 +1,8 @@
+Declare an array nested with 2 arrays each containing one half of the alphabet
+Declare a function 'decide' that takes a letter and a nested array as arguements
+	Function returns the letter in the other array using its position in its own array
+Return the result of:
+	Splitting the input str into an array
+	Mapping through this array applying the decide function if the current value is a letter
+		If the current value is not a letter return that item back
+		Join the array back in to a string
